@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.gemfire.client.ClientCacheFactoryBean;
 import org.springframework.data.gemfire.config.annotation.ClientCacheApplication;
+import org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration;
 import org.springframework.data.gemfire.config.annotation.EnableEntityDefinedRegions;
 import org.springframework.data.gemfire.config.annotation.EnableIndexing;
 import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
@@ -21,6 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
 @EnableGemfireRepositories(basePackageClasses = CustomerRepository.class)
 @EnableIndexing
+@EnableClusterConfiguration(useHttp = true)
 public class DemoApplication {
 
 	public static void main(String[] args) {
